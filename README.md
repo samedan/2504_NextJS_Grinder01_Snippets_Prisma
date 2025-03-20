@@ -25,3 +25,5 @@
 ### Server Action - submit a form
 
 > SnippetCreatePage ->'use server';
+
+### Server components - Client component
