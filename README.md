@@ -17,3 +17,11 @@
 # Run migration
 
 > npx prisma migrate dev
+
+### Initialize DBB
+
+/src/db/index.ts -> export const db = new PrismaClient();
+
+### Server Action - submit a form
+
+> SnippetCreatePage ->'use server';
