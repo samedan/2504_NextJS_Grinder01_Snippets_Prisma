@@ -2,6 +2,10 @@
 
 > https://www.udemy.com/course/next-js-the-complete-developers-guide/learn/lecture/40830118#questions/20863688
 
+### This Git
+
+> https://github.com/samedan/2504_NextJS_Grinder01_Snippets_Prisma
+
 ### Prisma
 
 > npm i prisma
@@ -57,3 +61,19 @@
 > <form action={editSnippetAction}></form>
 
 > editSnippetAction = actions.editSnippet.bind()
+
+### Errors
+
+> /src/app/snippets/new/error.tsx
+
+# Return error as message
+
+```
+if (err instanceof Error) {
+      return {
+        message: err.message,
+      };
+    }
+```
+
+> ![redirectlasta](https://github.com/samedan/2504_NextJS_Grinder01_Snippets_Prisma/blob/main/_printscreens/01printscreen.jpg)
