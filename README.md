@@ -77,3 +77,26 @@ if (err instanceof Error) {
 ```
 
 > ![redirectlasta](https://github.com/samedan/2504_NextJS_Grinder01_Snippets_Prisma/blob/main/_printscreens/01printscreen.jpg)
+
+### Cache & Dynamic pages
+
+# Force dynamic page
+
+> export const dynamic = 'force-dynamic';
+
+> export const revalidate = 0;
+
+> /src/actions.index.ts -> revalidatePath("/");
+
+> /src/actions.index.ts -> revalidatePath(`/snippets/${id}`);
+
+# Static [id] pages
+
+```
+export async function generateStaticParams() {
+  const snippets = await db.snippet.findMany();
+  return snippets.map((snippet) => {
+    return { id: snippet.id.toString() };
+  });
+}
+```

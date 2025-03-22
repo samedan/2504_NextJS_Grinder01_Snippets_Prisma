@@ -2,6 +2,7 @@
 
 import { db } from "@/db";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export async function editSnippet(id: number, code: string) {
   console.log("edit snippet called on server");
@@ -12,6 +13,7 @@ export async function editSnippet(id: number, code: string) {
     data: { code },
   });
   // redirect to edited snippet
+  revalidatePath(`/snippets/${id}`);
   redirect(`/snippets/${id}`);
 }
 
@@ -19,6 +21,7 @@ export async function deleteSnippet(id: number) {
   await db.snippet.delete({
     where: { id },
   });
+  revalidatePath("/");
   redirect("/");
 }
 
@@ -62,9 +65,6 @@ export async function createSnippet(
       };
     }
   }
+  revalidatePath("/");
   redirect("/");
-
-  // console.log(snippet);
-
-  // redirect to the root page
 }
